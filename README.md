@@ -1,0 +1,1 @@
+Robust and Scalable Web UI Automation Framework built with Java, Selenium WebDriver, and TestNG. Implements Fluent Page Object Model (Fluent POM) and Component-based architecture. Features comprehensive test suites, parallel execution, and advanced assertions.
