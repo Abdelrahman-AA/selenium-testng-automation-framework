@@ -144,7 +144,7 @@ TestData:
     Valid:
       FirstName: "AbdelRahman"
       LastName: "Abodief"
-      BillingAddress: "1 Khalifa Al-Ma'mun St, Cairo, Egypt"
+      BillingAddress: "1 Khalifa Al-Maamun St, Cairo, Egypt"
       CreditCardNum: "1234567812345678"
       CvvNum: "123"
 

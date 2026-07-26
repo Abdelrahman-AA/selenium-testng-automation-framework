@@ -84,7 +84,7 @@ public class BookConfirmPage extends BasePage{
     }
 
     public String getChildrenPerRoomFixedFieldText() {
-        return eActions.getElementDomPropertyValue(totalRoomsFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(childrenPerRoomFixedField, valueAttribute);
     }
 
     public String getTotalDaysFixedFieldText() {

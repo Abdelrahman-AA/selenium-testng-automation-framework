@@ -9,6 +9,11 @@ import pages.*;
 import testData.TestData;
 import utils.helpers.DriverFactory;
 
+import java.util.Locale;
+
+import static utils.helpers.Helpers.getDateOffsetFromToday;
+import static utils.helpers.Helpers.getTodayDate;
+
 public class BaseTest {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
@@ -28,6 +33,8 @@ public class BaseTest {
     protected final String registeredUserName = TestData.get("TestData.ValidRegisteredAccount.UserName");
     protected final String registeredPassword = TestData.get("TestData.ValidRegisteredAccount.Password");
     protected final String empty = "";
+    protected final String testedArrivalDate = getTodayDate(Locale.UK);
+    protected final String testedDepartureDate = getDateOffsetFromToday(1, Locale.UK);
 
 
     //URLs from YAML TestData

@@ -14,8 +14,6 @@ import static utils.helpers.Helpers.*;
 public class BookHotelPageTest extends BaseTest {
 
     private List<String> testedData;
-    private String testedArrivalDate = getTodayDate(Locale.UK);
-    private String testedDepartureDate = getDateOffsetFromToday(1, Locale.UK);
 
     @BeforeMethod
     public void initializePage() {
