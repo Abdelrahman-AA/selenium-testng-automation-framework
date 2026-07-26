@@ -9,9 +9,14 @@ public class BookConfirmPage extends BasePage{
     private static final String valueAttribute = "value";
     //</editor-fold>
 
+    //<editor-fold desc="Page Objects">
+    public StaticBarAtLoggedPages staticBar;
+    //</editor-fold>
+
     //<editor-fold desc="Constructor">
     public BookConfirmPage(WebDriver driver) {
         super(driver);
+        this.staticBar = new StaticBarAtLoggedPages(driver);
     }
     //</editor-fold>
 

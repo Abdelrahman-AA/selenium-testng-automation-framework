@@ -26,7 +26,7 @@ public class BookedItineraryPage extends BasePage {
     private final By bookItineraryPageMsg = By.xpath("//td[normalize-space()='Booked Itinerary']");
     private final By searchOrderField = By.id("order_id_text");
     private final By searchOrderGoButton = By.id("search_hotel_id");
-    private final By itineraryTable = By.xpath("td[align='right'] table");
+    private final By itineraryTable = By.cssSelector("td[align='right'] table");
     private final By tableChekBoxSelectAll = By.id("check_all");
     private final By tableCheckBoxForRows = By.name("input[value='" + tableOrdersValueId + "']");
     private final By tableRowsCancelButton = By.id("btn_id_" + tableOrdersValueId);
@@ -133,15 +133,15 @@ public class BookedItineraryPage extends BasePage {
         return eActions.getTableCellValue(table, RowIndex, 1).equals(orderId)
                 && eActions.getTableCellValue(table, RowIndex, 3).equals(hotelName)
                 && eActions.getTableCellValue(table, RowIndex, 4).equals(location)
-                && eActions.getTableCellValue(table, RowIndex, 5).equals(rooms)
+                && eActions.getTableCellValue(table, RowIndex, 5).split(" ")[0].trim().equals(rooms)
                 && eActions.getTableCellValue(table, RowIndex, 6).equals(firstName)
                 && eActions.getTableCellValue(table, RowIndex, 7).equals(lastName)
                 && eActions.getTableCellValue(table, RowIndex, 8).equals(arrivalDate)
                 && eActions.getTableCellValue(table, RowIndex, 9).equals(departureDate)
-                && eActions.getTableCellValue(table, RowIndex, 10).equals(NoOfDays)
+                && eActions.getTableCellValue(table, RowIndex, 10).split(" ")[0].trim().equals(NoOfDays)
                 && eActions.getTableCellValue(table, RowIndex, 11).equals(roomsType)
-                && eActions.getTableCellValue(table, RowIndex, 12).equals(pricePerNight)
-                && eActions.getTableCellValue(table, RowIndex, 13).equals(totalPriceInclGST);
+                && eActions.getTableCellValue(table, RowIndex, 12).split(" ")[2].trim().equals(pricePerNight)
+                && eActions.getTableCellValue(table, RowIndex, 13).split(" ")[2].trim().equals(totalPriceInclGST);
     }
     //</editor-fold>
 

@@ -3,13 +3,13 @@ package pages.Test;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import testData.TestData;
 
 import java.util.List;
 import java.util.Locale;
 
-import static utils.helpers.Helpers.getDateOffsetFromToday;
-import static utils.helpers.Helpers.getTodayDate;
+import static utils.helpers.Helpers.*;
 
 public class BookConfirmPageTest extends BaseTest {
 
@@ -120,7 +120,7 @@ public class BookConfirmPageTest extends BaseTest {
 
     @Test
     public void verifyFinalBillingPriceAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getFinalBillingPriceFixedFieldText().split(" ")[2],testedData.get(8).split(" ")[2]);
+        Assert.assertEquals(bookConfirmPage.getFinalBillingPriceFixedFieldText().split(" ")[2],testedData.get(9).split(" ")[2]);
     }
 
     @Test
@@ -136,6 +136,33 @@ public class BookConfirmPageTest extends BaseTest {
     @Test
     public void verifyBillingAddressAgainstEntered(){
         Assert.assertEquals(bookConfirmPage.getBillingAddressFixedFieldText(),TestData.get("TestData.BillingData.Valid.BillingAddress"));
+    }
+
+    @Test
+    public void verifyGoingToSearchHotelPageByClickingOnSearchHotelButton(){
+        bookConfirmPage
+                .clickSearchHotelButton();
+
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(),searchHotelPageURL));
+    }
+
+    @Test
+    public void verifyGoingToBookItineraryPageByClickingOnMyItineraryButton(){
+        bookConfirmPage
+                .clickMyItineraryButton();
+
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(),bookedItineraryURL));
+    }
+
+    @Test
+    public void verifyLoggingOutAndGoingToLogoutPageByClickingOnLogoutButton(){
+        bookConfirmPage
+                .clickLogoutButton();
+
+        SoftAssert softAssert =new SoftAssert();
+        softAssert.assertFalse(bookConfirmPage.staticBar.isStaticBarVisible());
+        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(),logoutURL));
+        softAssert.assertAll();
     }
 //--------------------------------------------------------------------
     @Test

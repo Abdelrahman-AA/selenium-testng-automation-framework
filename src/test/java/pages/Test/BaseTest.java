@@ -43,10 +43,10 @@ public class BaseTest {
     protected final String selectHotelPageURL = TestData.get("Pages.SelectHotelPage.URL");
     protected final String bookHotelPageURL = TestData.get("Pages.BookHotelPage.URL");
     protected final String bookConfirmPageURL = TestData.get("Pages.BookConfirm.URL");
+    protected final String bookedItineraryURL = TestData.get("Pages.BookedItinerary.URL");
     protected final String registerPageURL = TestData.get("Pages.RegisterPage.URL");
     protected final String forgetPasswordURL = TestData.get("Pages.ForgetPassword.URL");
     protected final String changePasswordPageURL = TestData.get("Pages.ChangePasswordPage.URL");
-    protected final String bookedItineraryURL = TestData.get("Pages.BookedItinerary.URL");
     protected final String logoutURL = TestData.get("Pages.Logout.URL");
     protected final String termsConditionsURL = TestData.get("StaticURLs.TermsConditions");
 
