@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 
-    //<editor-fold desc="Page Objects">
+    //<editor-fold desc="Constructor">
     public HomePage(WebDriver driver) {
         super(driver);
     }

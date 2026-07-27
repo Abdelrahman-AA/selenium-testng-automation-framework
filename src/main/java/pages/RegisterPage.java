@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class RegisterPage extends BasePage {
 
     //<editor-fold desc="Variables">
-    private static final String valueAttribute = "value";
+    private static final String VALUE_ATTRIBUTE = "value";
     //</editor-fold>
 
 
@@ -124,27 +124,27 @@ public class RegisterPage extends BasePage {
 
     //<editor-fold desc="Getters">
     public String getUserNameFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(userNameField, valueAttribute);
+        return eActions.getElementDomPropertyValue(userNameField, VALUE_ATTRIBUTE);
     }
 
     public String getPasswordFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(passwordField, valueAttribute);
+        return eActions.getElementDomPropertyValue(passwordField, VALUE_ATTRIBUTE);
     }
 
     public String getConfirmPasswordFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(confirmPasswordField, valueAttribute);
+        return eActions.getElementDomPropertyValue(confirmPasswordField, VALUE_ATTRIBUTE);
     }
 
     public String getFullNameFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(fullNameField, valueAttribute);
+        return eActions.getElementDomPropertyValue(fullNameField, VALUE_ATTRIBUTE);
     }
 
     public String getEmailFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(emailField, valueAttribute);
+        return eActions.getElementDomPropertyValue(emailField, VALUE_ATTRIBUTE);
     }
 
     public String getCaptchaFieldCurrentText() {
-        return eActions.getElementDomPropertyValue(captchaTextField, valueAttribute);
+        return eActions.getElementDomPropertyValue(captchaTextField, VALUE_ATTRIBUTE);
     }
 
     public String getUserNameErrorMsgText() {
@@ -248,28 +248,21 @@ public class RegisterPage extends BasePage {
     }
 
     public RegisterPage fillRegistrationFormAndSubmit(
-            String username,
-            String password,
-            String confirmPassword,
-            String fullName,
-            String email,
-            String captchaText,
-            boolean agreeTerms) {
+            String username, String password, String confirmPassword,
+            String fullName, String email, String captchaText, boolean agreeTerms) {
+
         enterUserName(username)
                 .enterPassword(password)
                 .enterConfirmPassword(confirmPassword)
                 .enterFullName(fullName)
                 .enterEmail(email);
+
         if (agreeTerms) markAgreeTerms();
+
         if (captchaText != null && !captchaText.isEmpty()) {
             return enterCaptchaText(captchaText)
                     .clickRegisterButton();
         } else {
-            enterUserName(username)
-                    .enterPassword(password)
-                    .enterConfirmPassword(confirmPassword)
-                    .enterFullName(fullName)
-                    .enterEmail(email);
             return solveCaptchaManually();
         }
     }

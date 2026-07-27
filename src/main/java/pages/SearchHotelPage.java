@@ -9,7 +9,7 @@ import java.util.List;
 public class SearchHotelPage extends BasePage {
 
     //<editor-fold desc="Page Objects">
-    public StaticBarAtLoggedPages staticBar;
+    public final StaticBarAtLoggedPages staticBar;
     //</editor-fold>
 
     //<editor-fold desc="Constructor">
@@ -183,20 +183,17 @@ public class SearchHotelPage extends BasePage {
     }
 
     public List<String> getTestedDataForSave(
-                                             int locationIndex,
-                                             int hotelIndex,
-                                             int roomTypeIndex,
-                                             int numOfRoomsIndex,
-                                             int adultsPerRoomIndex,
-                                             int childrenPerRoomIndex) {
-        List<String> testedData = new ArrayList<>(List.of());
-        testedData.add(getLocationNameByIndex(locationIndex));
-        testedData.add(getHotelNameByIndex(hotelIndex));
-        testedData.add(getRoomTypeNameByIndex(roomTypeIndex));
-        testedData.add(getNumOfRoomNameByIndex(numOfRoomsIndex));
-        testedData.add(getAdultsPerRoomNameByIndex(adultsPerRoomIndex));
-        testedData.add(getChildrenPerRoomNameByIndex(childrenPerRoomIndex));
-        return testedData;
+            int locationIndex, int hotelIndex, int roomTypeIndex,
+            int numOfRoomsIndex, int adultsPerRoomIndex, int childrenPerRoomIndex) {
+
+        return List.of(
+                getLocationNameByIndex(locationIndex),
+                getHotelNameByIndex(hotelIndex),
+                getRoomTypeNameByIndex(roomTypeIndex),
+                getNumOfRoomNameByIndex(numOfRoomsIndex),
+                getAdultsPerRoomNameByIndex(adultsPerRoomIndex),
+                getChildrenPerRoomNameByIndex(childrenPerRoomIndex)
+        );
     }
     //</editor-fold>
 

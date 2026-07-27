@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class BookHotelPage extends BasePage {
 
     //<editor-fold desc="Variables">
-    private static final String valueAttribute = "value";
+    private static final String VALUE_ATTRIBUTE = "value";
     //</editor-fold>
 
     //<editor-fold desc="Page Objects">
-    public StaticBarAtLoggedPages staticBar;
+    public final StaticBarAtLoggedPages staticBar;
     //</editor-fold>
 
     //<editor-fold desc="Constructor">
@@ -108,39 +108,39 @@ public class BookHotelPage extends BasePage {
 
     //<editor-fold desc="Getters">
     public String getHotelNameFixedFieldText() {
-        return eActions.getElementDomPropertyValue(hotelNameFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(hotelNameFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getLocationFixedFieldText() {
-        return eActions.getElementDomPropertyValue(locationFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(locationFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getRoomTypeFixedFieldText() {
-        return eActions.getElementDomPropertyValue(roomTypeFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(roomTypeFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getNumOfRoomsFixedFieldText() {
-        return eActions.getElementDomPropertyValue(numOfRoomsFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(numOfRoomsFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getTotalDaysFixedFieldText() {
-        return eActions.getElementDomPropertyValue(totalDaysFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(totalDaysFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getPricePerNightFixedFieldText() {
-        return eActions.getElementDomPropertyValue(pricePerNightFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(pricePerNightFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getTotalPriceFixedFieldText() {
-        return eActions.getElementDomPropertyValue(totalPriceFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(totalPriceFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getGstFixedFieldText() {
-        return eActions.getElementDomPropertyValue(gstFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(gstFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getFinalBilledPriceFixedFieldText() {
-        return eActions.getElementDomPropertyValue(finalBilledPriceFixedField, valueAttribute);
+        return eActions.getElementDomPropertyValue(finalBilledPriceFixedField, VALUE_ATTRIBUTE);
     }
 
     public String getFirstNameFieldErrorMsg() {

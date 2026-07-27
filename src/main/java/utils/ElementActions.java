@@ -12,8 +12,8 @@ import java.util.List;
 public class ElementActions {
 
     //<editor-fold desc="Variables">
-    private static final Duration defaultTimeout = Duration.ofSeconds(5);
-    private static final Duration defaultTimeoutTwo = Duration.ofSeconds(60);
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(5);
+    private static final Duration LONG_TIMEOUT = Duration.ofSeconds(60);
     //</editor-fold>
 
     //<editor-fold desc="Configurations">
@@ -32,19 +32,19 @@ public class ElementActions {
     }
 
     private WebElement getElementIfVisible(By by) {
-        return getWait(defaultTimeout).until(ExpectedConditions.visibilityOfElementLocated(by));
+        return getWait(DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     private WebElement getElementIfVisibleWithLongTimeout(By by) {
-        return getWait(defaultTimeoutTwo).until(ExpectedConditions.visibilityOfElementLocated(by));
+        return getWait(LONG_TIMEOUT).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     private WebElement getElementIfClickable(By by) {
-        return getWait(defaultTimeout).until(ExpectedConditions.elementToBeClickable(by));
+        return getWait(DEFAULT_TIMEOUT).until(ExpectedConditions.elementToBeClickable(by));
     }
 
     private WebElement getElementIfClickableWithLongTimeout(By by) {
-        return getWait(defaultTimeoutTwo).until(ExpectedConditions.elementToBeClickable(by));
+        return getWait(LONG_TIMEOUT).until(ExpectedConditions.elementToBeClickable(by));
     }
     //</editor-fold>
 
@@ -130,10 +130,10 @@ public class ElementActions {
 
     //<editor-fold desc="Multiple Elements & Lists">
     public void clickElementFromRadioByIndex(By by, int index) {
-        List<WebElement> elements = getWait(defaultTimeout)
+        List<WebElement> elements = getWait(DEFAULT_TIMEOUT)
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
         if (index >= 0 && index < elements.size()) {
-            getWait(defaultTimeout).until(ExpectedConditions.elementToBeClickable(elements.get(index))).click();
+            getWait(DEFAULT_TIMEOUT).until(ExpectedConditions.elementToBeClickable(elements.get(index))).click();
         } else {
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds. Total elements found: " + elements.size());
         }
@@ -174,13 +174,15 @@ public class ElementActions {
     }
 
     public List<String> getRowIds(By tableIdHoldersLocator) {
-        List < String > idsList = new ArrayList<>();
+        List<String> idsList = new ArrayList<>();
 
-        if(getElementIfVisibleWithLongTimeout(tableIdHoldersLocator).isDisplayed()){
-        List<WebElement> checkboxes =driver.findElements(tableIdHoldersLocator);
+        List<WebElement> checkboxes = getWait(LONG_TIMEOUT)
+                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tableIdHoldersLocator));
+
         for (WebElement checkbox : checkboxes) {
             idsList.add(checkbox.getAttribute("value"));
-        }}
+        }
+
         return idsList;
     }
     //</editor-fold>

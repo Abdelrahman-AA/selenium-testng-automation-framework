@@ -7,7 +7,7 @@ public abstract class BasePage {
 
     //<editor-fold desc="Variables and Helpers">
     protected final WebDriver driver;
-    protected ElementActions eActions;
+    protected final ElementActions eActions;
     //</editor-fold>
 
     //<editor-fold desc="Constructor">

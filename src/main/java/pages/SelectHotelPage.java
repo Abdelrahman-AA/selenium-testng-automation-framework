@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SelectHotelPage extends BasePage{
+public class SelectHotelPage extends BasePage {
 
     //<editor-fold desc="Page Objects">
-    public StaticBarAtLoggedPages staticBar;
+    public final StaticBarAtLoggedPages staticBar;
     //</editor-fold>
 
     //<editor-fold desc="Constructor">
@@ -127,12 +127,12 @@ public class SelectHotelPage extends BasePage{
         List<List<String>> matrix = getResultsTableMatrix();
         String expectedRoomNum = testedData.get(3).split("-")[0].trim();
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(Locale.UK);
-long noOfDays=   ChronoUnit.DAYS.between(LocalDate.parse(arrivalDate, formatter), LocalDate.parse(departureDate, formatter));
+        long numOfDays = ChronoUnit.DAYS.between(LocalDate.parse(arrivalDate, formatter), LocalDate.parse(departureDate, formatter));
         boolean isLocationValid = getColumnFromMatrix(matrix, 2).stream().allMatch(val -> val.trim().equalsIgnoreCase(testedData.get(0).trim()));
         boolean isRoomsValid = getColumnFromMatrix(matrix, 3).stream().allMatch(val -> val.contains(expectedRoomNum));
         boolean isArrivalValid = getColumnFromMatrix(matrix, 4).stream().allMatch(val -> val.trim().equals(arrivalDate.trim()));
         boolean isDepartureValid = getColumnFromMatrix(matrix, 5).stream().allMatch(val -> val.trim().equals(departureDate.trim()));
-        boolean isNoOfDaysValid = getColumnFromMatrix(matrix, 6).stream().allMatch(val -> val.contains(String.valueOf(noOfDays)));
+        boolean isNoOfDaysValid = getColumnFromMatrix(matrix, 6).stream().allMatch(val -> val.contains(String.valueOf(numOfDays)));
         boolean isRoomsTypeValid = getColumnFromMatrix(matrix, 7).stream().allMatch(val -> val.trim().equalsIgnoreCase(testedData.get(2).trim()));
 
         return isLocationValid && isRoomsValid && isArrivalValid && isDepartureValid && isNoOfDaysValid && isRoomsTypeValid;

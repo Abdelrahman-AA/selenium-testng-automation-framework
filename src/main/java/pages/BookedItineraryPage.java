@@ -2,18 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class BookedItineraryPage extends BasePage {
 
-    //<editor-fold desc="Variables">
-    private String tableOrdersValueId;
-    //</editor-fold>
-
     //<editor-fold desc="Page Objects">
-    public StaticBarAtLoggedPages staticBar;
+    public final StaticBarAtLoggedPages staticBar;
     //</editor-fold>
 
     //<editor-fold desc="Constructor">
@@ -28,7 +23,7 @@ public class BookedItineraryPage extends BasePage {
     private final By searchOrderField = By.id("order_id_text");
     private final By searchOrderGoButton = By.id("search_hotel_id");
     private final By itineraryTable = By.cssSelector("td[align='right'] table");
-    private final By tableChekBoxSelectAll = By.id("check_all");
+    private final By tableCheckBoxSelectAll = By.id("check_all");
 
     private By getTableCheckBoxForRows(String id) {
         return By.cssSelector("input[value='" + id + "']");
@@ -79,17 +74,19 @@ public class BookedItineraryPage extends BasePage {
     }
 
     public BookedItineraryPage checkSelectAllToCancelAtTable() {
-        eActions.clickWebElement(tableChekBoxSelectAll);
+        eActions.clickWebElement(tableCheckBoxSelectAll);
         return this;
     }
 
     public BookedItineraryPage checkSelectCancelBoxByIndex(int index) {
+        String tableOrdersValueId;
         tableOrdersValueId = getTableRowsIds().get(index);
         eActions.clickWebElement(getTableCheckBoxForRows(tableOrdersValueId));
         return this;
     }
 
     public BookedItineraryPage clickCancelButtonByIndex(int index) {
+        String tableOrdersValueId;
         tableOrdersValueId = getTableRowsIds().get(index);
         eActions.clickWebElementWithLongTimeout(getTableRowsCancelButton(tableOrdersValueId));
         driver.switchTo().alert().accept();
@@ -102,14 +99,16 @@ public class BookedItineraryPage extends BasePage {
         return eActions.getElementText(searchResultMsg);
     }
 
-    public List<String> getTableRowsIds() {
+    private List<String> getTableRowsIds() {
         return eActions.getRowIds(tableRowsIds);
     }
 
     public int getTableNumOfRows() {
-         try { return eActions.getTableRowsCount(eActions.getTableDataAsMatrix(itineraryTable));} catch (Exception e) {
-             return 0;
-         }
+        try {
+            return eActions.getTableRowsCount(eActions.getTableDataAsMatrix(itineraryTable));
+        } catch (Exception e) {
+            return 0;
+        }
     }
     //</editor-fold>
 
@@ -127,7 +126,7 @@ public class BookedItineraryPage extends BasePage {
     }
 
     public boolean isOrderDetailsCorrect(
-            int RowIndex,
+            int rowIndex,
             String orderId,
             String hotelName,
             String location,
@@ -136,24 +135,24 @@ public class BookedItineraryPage extends BasePage {
             String lastName,
             String arrivalDate,
             String departureDate,
-            String NoOfDays,
+            String numOfDays,
             String roomsType,
             String pricePerNight,
             String totalPriceInclGST) {
         List<List<String>> table = eActions.getTableDataAsMatrix(itineraryTable);
 
-        return eActions.getTableCellValue(table, RowIndex, 1).equals(orderId)
-                && eActions.getTableCellValue(table, RowIndex, 3).equals(hotelName)
-                && eActions.getTableCellValue(table, RowIndex, 4).equals(location)
-                && eActions.getTableCellValue(table, RowIndex, 5).split(" ")[0].trim().equals(rooms)
-                && eActions.getTableCellValue(table, RowIndex, 6).equals(firstName)
-                && eActions.getTableCellValue(table, RowIndex, 7).equals(lastName)
-                && eActions.getTableCellValue(table, RowIndex, 8).equals(arrivalDate)
-                && eActions.getTableCellValue(table, RowIndex, 9).equals(departureDate)
-                && eActions.getTableCellValue(table, RowIndex, 10).split(" ")[0].trim().equals(NoOfDays)
-                && eActions.getTableCellValue(table, RowIndex, 11).equals(roomsType)
-                && eActions.getTableCellValue(table, RowIndex, 12).split(" ")[2].trim().equals(pricePerNight)
-                && eActions.getTableCellValue(table, RowIndex, 13).split(" ")[2].trim().equals(totalPriceInclGST);
+        return eActions.getTableCellValue(table, rowIndex, 1).equals(orderId)
+                && eActions.getTableCellValue(table, rowIndex, 3).equals(hotelName)
+                && eActions.getTableCellValue(table, rowIndex, 4).equals(location)
+                && eActions.getTableCellValue(table, rowIndex, 5).split(" ")[0].trim().equals(rooms)
+                && eActions.getTableCellValue(table, rowIndex, 6).equals(firstName)
+                && eActions.getTableCellValue(table, rowIndex, 7).equals(lastName)
+                && eActions.getTableCellValue(table, rowIndex, 8).equals(arrivalDate)
+                && eActions.getTableCellValue(table, rowIndex, 9).equals(departureDate)
+                && eActions.getTableCellValue(table, rowIndex, 10).split(" ")[0].trim().equals(numOfDays)
+                && eActions.getTableCellValue(table, rowIndex, 11).equals(roomsType)
+                && eActions.getTableCellValue(table, rowIndex, 12).split(" ")[2].trim().equals(pricePerNight)
+                && eActions.getTableCellValue(table, rowIndex, 13).split(" ")[2].trim().equals(totalPriceInclGST);
     }
     //</editor-fold>
 

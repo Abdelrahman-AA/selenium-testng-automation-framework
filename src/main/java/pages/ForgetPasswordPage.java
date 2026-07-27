@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ForgetPasswordPage extends BasePage {
 
     //<editor-fold desc="Variables">
-    private static final String valueAttribute = "value";
+    private static final String VALUE_ATTRIBUTE = "value";
     //</editor-fold>
 
     //<editor-fold desc="Constructor">
@@ -60,7 +60,7 @@ public class ForgetPasswordPage extends BasePage {
     }
 
     public String getEmailFieldText() {
-        return eActions.getElementDomPropertyValue(emailField, valueAttribute);
+        return eActions.getElementDomPropertyValue(emailField, VALUE_ATTRIBUTE);
     }
     //</editor-fold>
 
