@@ -37,8 +37,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go To Search Hotel Page",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go To Search Hotel Page")
     public void verifyGoingToSearchHotelPage() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), searchHotelPageURL),
@@ -49,8 +48,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Location DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Location DropDown List")
     public void verifySelectingLastOptionOfLocationDropDown() {
         String expectedLocation = searchHotelPage.getLocationNameByIndex(indexOfLastOptionOfLocation);
 
@@ -62,8 +60,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Hotels DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Hotels DropDown List")
     public void verifySelectingLastOptionOfHotelsDropDown() {
         String expectedHotel = searchHotelPage.getHotelNameByIndex(indexOfLastOptionOfHotels);
 
@@ -75,8 +72,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Room Type DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Room Type DropDown List")
     public void verifySelectingLastOptionOfRoomTypeDropDown() {
         String expectedRoomType = searchHotelPage.getRoomTypeNameByIndex(indexOfLastOptionOfRoomTypes);
 
@@ -88,8 +84,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Number Of Rooms DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Number Of Rooms DropDown List")
     public void verifySelectingLastOptionOfNumOfRoomsDropDown() {
         String expectedRooms = searchHotelPage.getNumOfRoomNameByIndex(indexOfLastOptionOfNumsOfRooms);
 
@@ -101,8 +96,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Adults Per Room DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Adults Per Room DropDown List")
     public void verifySelectingLastOptionOfAdultsPerRoomsDropDown() {
         String expectedAdults = searchHotelPage.getAdultsPerRoomNameByIndex(indexOfLastOptionOfAdultsPerRoom);
 
@@ -114,8 +108,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Select Last Option From Children Per Room DropDown List",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Select Last Option From Children Per Room DropDown List")
     public void verifySelectingLastOptionOfChildrenPerRoomsDropDown() {
         String expectedChildren = searchHotelPage.getChildrenPerRoomNameByIndex(indexOfLastOptionOfChildrenPerRoom);
 
@@ -127,11 +120,10 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Empty All Fields When Click Reset Button",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Empty All Fields When Click Reset Button")
     public void verifyResetAllFieldsWhenClickReset() {
         String defaultLocation = searchHotelPage.getDefaultOfLocations();
-        String defaultHotel = searchHotelPage.geDefaultOfHotels();
+        String defaultHotel = searchHotelPage.getDefaultOfHotels();
         String defaultRoomTypes = searchHotelPage.getDefaultOfRoomTypes();
         String defaultNumsOfRooms = searchHotelPage.getDefaultOfNumsOfRooms();
         String defaultAdultsPerRoom = searchHotelPage.getDefaultOfAdultsPerRoom();
@@ -172,8 +164,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Going To Hotel Reservation Options When Submit Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Going To Hotel Reservation Options When Submit Valid Data")
     public void verifyGoingToHotelReservationOptionsWhenValidData() {
         selectHotelPage = searchHotelPage
                 .selectAndFillAllFieldsAndClickSearch(
@@ -191,8 +182,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With No Selected Location",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With No Selected Location")
     public void verifyErrorMsgForNoSelectedLocation() {
         searchHotelPage
                 .clickSearch();
@@ -204,8 +194,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Empty Check In Date",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Empty Check In Date")
     public void verifyErrorMsgForEmptyCheckInDate() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -219,8 +208,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Passed Check In Date",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Passed Check In Date")
     public void verifyErrorMsgForPassedCheckInDate() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -234,8 +222,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Empty Check Out Date",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Empty Check Out Date")
     public void verifyErrorMsgForEmptyCheckOutDate() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -249,12 +236,11 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Passed Check Out Date",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Passed Check Out Date")
     public void verifyErrorMsgForPassedCheckOutDate() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
-                .enterCheckInDate(passedDate)
+                .enterCheckOutDate(passedDate)
                 .clickSearch();
 
         Assert.assertTrue(searchHotelPage.isCheckOutDateErrorMsgVisible(),
@@ -264,8 +250,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Today And Yesterday",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Today And Yesterday")
     public void verifyErrorMsgForCheckOutDateIsBeforeCheckInDateCaseIfTodayAndYesterday() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -284,8 +269,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Today And Tomorrow",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Today And Tomorrow")
     public void verifyErrorMsgForCheckOutDateIsBeforeCheckInDateCaseIfTodayAndTomorrow() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -306,8 +290,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Tomorrow And After Tomorrow",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Check Out Date Is Before Check In Date Case If Tomorrow And After Tomorrow")
     public void verifyErrorMsgForCheckOutDateIsBeforeCheckInDateCaseIfTomorrowAndAfterTomorrow() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -328,8 +311,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Check In And Out Date For Wrong Format",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Check In And Out Date For Wrong Format")
     public void verifyErrorMsgForCheckInAndOutDateForWrongFormat() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)
@@ -350,8 +332,7 @@ public class SearchHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try Search With Check In And Out Date Are Text Not Date",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try Search With Check In And Out Date Are Text Not Date")
     public void verifyErrorMsgForCheckInAndOutDateTextNotDate() {
         searchHotelPage
                 .selectIndexOfLocation(indexOfLastOptionOfLocation)

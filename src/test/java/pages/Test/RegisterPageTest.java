@@ -18,8 +18,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go To Register Page WebPage",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go To Register Page WebPage")
     public void verifyRegistrationPageOpened() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), registerPageURL),
@@ -30,8 +29,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go Back To HomePage When Click Back To Home Page CTA",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go Back To HomePage When Click Back To Home Page CTA")
     public void verifyGoingBackToHomePageFromCta() {
         registerPage
                 .clickBackToLoginPageCTA();
@@ -41,8 +39,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Opening Terms Page When Click Terms CTA",
-            threadPoolSize = threadPoolSize)
+            description = "Should Opening Terms Page When Click Terms CTA")
     public void verifyOpeningTermsPageFromRegistrationPageCta() {
         registerPage
                 .clickTermsCTA();
@@ -57,8 +54,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Input Fields Cleared When Click Reset Button",
-            threadPoolSize = threadPoolSize)
+            description = "Should Input Fields Cleared When Click Reset Button")
     public void verifyInputFieldsClearedAfterClickReset() {
         registerPage
                 .fillRegistrationForm(
@@ -83,8 +79,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit UserName At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit UserName At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditUserNameAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterUserName(TestData.get("TestData.InvalidShortRegistration.UserName"))
@@ -95,8 +90,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Password At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Password At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditPasswordAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterPassword(TestData.get("TestData.InvalidShortRegistration.Password"))
@@ -107,8 +101,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Confirm Password At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Confirm Password At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditConfirmPasswordAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterConfirmPassword(TestData.get("TestData.InvalidShortRegistration.ConfirmPassword"))
@@ -119,8 +112,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Full Name At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Full Name At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditFullNameAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterFullName(TestData.get("TestData.InvalidShortRegistration.FullName"))
@@ -131,8 +123,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Email At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Email At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditEmailAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterEmail(TestData.get("TestData.InvalidShortRegistration.Email"))
@@ -143,8 +134,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Captcha At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Captcha At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditCaptchaAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .enterCaptchaText(TestData.get("TestData.InvalidShortRegistration.RandomCaptcha"))
@@ -154,8 +144,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Can Edit Terms Agreement Check At Registration Form After Invalid Input And Submit Button Still Clickable",
-            threadPoolSize = threadPoolSize)
+            description = "Should Can Edit Terms Agreement Check At Registration Form After Invalid Input And Submit Button Still Clickable")
     public void verifyCanEditTermsAgreementAtRegistrationFormAfterInvalidInputAndSubmitBtnStillClickable() {
         registerPage
                 .markAgreeTerms()
@@ -167,8 +156,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Register With Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Register With Valid Data")
     public void verifySuccessfullyRegistration() {
         String randomString = getRandomString(3);
 
@@ -190,8 +178,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Try To Register With Empty Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Try To Register With Empty Data")
     public void verifyErrorMsgWithEmptyData() {
         registerPage
                 .clickRegisterButton();
@@ -216,8 +203,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Enter Wrong Email Format",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Enter Wrong Email Format")
     public void verifyErrorMsgForWrongEmailFormat() {
         registerPage
                 .enterEmail(TestData.get("TestData.InvalidShortRegistration.Email"))
@@ -230,8 +216,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Enter Wrong Captcha",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Enter Wrong Captcha")
     public void verifyErrorMsgForWrongCaptcha() {
         registerPage
                 .enterCaptchaText(TestData.get("TestData.InvalidShortRegistration.RandomCaptcha"))
@@ -244,8 +229,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Enter InValid Short Data For All Fields But With Valid Email",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Enter InValid Short Data For All Fields But With Valid Email")
     public void verifyErrorMsgForEnteringShortDataButEmailForRegistration() {
         registerPage
                 .fillRegistrationFormAndSubmit(
@@ -271,8 +255,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Enter Password Miss Match Confirm Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Enter Password Miss Match Confirm Password")
     public void verifyErrorMsgForMissMatchPasswordConfirmationAtRegistration() {
         registerPage
                 .fillRegistrationFormAndSubmit(
@@ -293,8 +276,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Trying To Register With UserName Already Registered",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Trying To Register With UserName Already Registered")
     public void verifyErrorMsgForRegisteredUserNameAtRegistration() {
         registerPage
                 .fillRegistrationFormAndSubmit(
@@ -316,8 +298,7 @@ public class RegisterPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Trying To Register With Email Already Registered",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Trying To Register With Email Already Registered")
     public void verifyErrorMsgForRegisteredEmailAtRegistration() {
         registerPage
                 .fillRegistrationFormAndSubmit(

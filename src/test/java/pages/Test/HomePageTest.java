@@ -24,8 +24,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go To Website WebPage",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go To Website WebPage")
     public void verifyHomePageOpened() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), homePageURL), "Home Page URL does not match expected URL.");
@@ -34,8 +33,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Logging With Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Logging With Valid Data")
     public void verifyLoggingWithValidData() {
         homePage
                 .fillLoginFormAndSubmit(registeredUserName, registeredPassword);
@@ -44,8 +42,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Going To Register Page From HomePage",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Going To Register Page From HomePage")
     public void verifyGoingToRegisterPageFromHomePage() {
         homePage
                 .clickNewUserCTA();
@@ -54,8 +51,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Going To Forget Logging Info Page From HomePage",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Going To Forget Logging Info Page From HomePage")
     public void verifyGoingToForgetLoggingInfoPageFromHomePage() {
         homePage
                 .clickForgetPasswordCTA();
@@ -64,8 +60,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Try To Login With Empty Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Try To Login With Empty Data")
     public void verifyErrorMsgAppearanceWithEmptyLoginData() {
         homePage
                 .clickLoginButton();
@@ -77,8 +72,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Try To Login With Registered UserName And Empty Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Try To Login With Registered UserName And Empty Password")
     public void verifyErrorMsgAppearanceWithRegisteredUsernameAndEmptyPassword() {
         homePage
                 .fillLoginFormAndSubmit(registeredUserName, empty);
@@ -91,8 +85,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Try To Login With Not Registered UserName And Empty Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Try To Login With Not Registered UserName And Empty Password")
     public void verifyErrorMsgAppearanceWithNotRegisteredUsernameAndEmptyPassword() {
         homePage
                 .fillLoginFormAndSubmit(notRegisteredUserName, empty);
@@ -105,8 +98,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Try To Login With Empty UserName And Valid Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Try To Login With Empty UserName And Valid Password")
     public void verifyErrorMsgAppearanceWithEmptyUsernameAndValidPassword() {
         homePage
                 .fillLoginFormAndSubmit(empty, registeredPassword);
@@ -119,8 +111,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg With Statement Content Appears When Try To Login With InValid UserName And Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg With Statement Content Appears When Try To Login With InValid UserName And Password")
     public void verifyNotLoggingWithInvalidData() {
         homePage
                 .fillLoginFormAndSubmit(notRegisteredUserName, notRegisteredPassword);

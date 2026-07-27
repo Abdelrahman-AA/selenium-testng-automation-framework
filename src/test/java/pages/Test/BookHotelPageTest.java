@@ -50,8 +50,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Return To Search Page When Click Cancel",
-            threadPoolSize = threadPoolSize)
+            description = "Should Return To Search Page When Click Cancel")
     public void verifyReturnToSearchPageWhenClickCancel() {
         bookHotelPage
                 .clickCancel();
@@ -60,64 +59,56 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Hotel Name Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Hotel Name Against Selected")
     public void verifyHotelNameAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getHotelNameFixedFieldText(), testedData.get(1),
                 "Hotel name does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Location Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Location Against Selected")
     public void verifyLocationAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getLocationFixedFieldText(), testedData.get(0),
                 "Location does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Room Type Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Room Type Against Selected")
     public void verifyRoomTypeAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getRoomTypeFixedFieldText(), testedData.get(2),
                 "Room type does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Num Of Rooms Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Num Of Rooms Against Selected")
     public void verifyNumOfRoomsAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getNumOfRoomsFixedFieldText().split(" ")[0].trim(), testedData.get(3).split(" ")[0].trim(),
                 "Number of rooms does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Total Days Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Total Days Against Selected")
     public void verifyTotalDaysAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getTotalDaysFixedFieldText().split(" ")[0].trim(), getDifferenceBetweenTwoDatesByDays(testedArrivalDate, testedDepartureDate, Locale.UK).toString(),
                 "Total days do not match the selected dates range.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Price Per Night Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Price Per Night Against Selected")
     public void verifyPricePerNightAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getPricePerNightFixedFieldText().split(" ")[2].trim(), testedData.get(6).split(" ")[2].trim(),
                 "Price per night does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Total Price Before Gst Against Selected",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Total Price Before Gst Against Selected")
     public void verifyTotalPriceBeforeGstAgainstSelected() {
         Assert.assertEquals(bookHotelPage.getTotalPriceFixedFieldText().split(" ")[2].trim(), testedData.get(7).split(" ")[2].trim(),
                 "Total price before GST does not match the selected one.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Gst As Ten Percent",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Gst As Ten Percent")
     public void verifyGstAsTenPercent() {
         Assert.assertEquals(Integer.valueOf(bookHotelPage.getGstFixedFieldText().split(" ")[2].trim()),
                 Integer.valueOf(bookHotelPage.getTotalPriceFixedFieldText().split(" ")[2].trim()) / 10,
@@ -125,8 +116,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Final Billing Price Is Summation Gst And Total Price",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Final Billing Price Is Summation Gst And Total Price")
     public void verifyFinalBillingPriceIsSummationGstAndTotalPrice() {
         Assert.assertEquals(Integer.valueOf(bookHotelPage.getFinalBilledPriceFixedFieldText().split(" ")[2].trim()),
                 Integer.valueOf(bookHotelPage.getTotalPriceFixedFieldText().split(" ")[2].trim())
@@ -135,8 +125,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Book Hotel With Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Book Hotel With Valid Data")
     public void verifyBookingWithValidData() {
         bookHotelPage
                 .enterFirstName(TestData.get("TestData.BillingData.Valid.FirstName"))
@@ -146,15 +135,14 @@ public class BookHotelPageTest extends BaseTest {
                 .selectCreditCardTypeByIndex(bookHotelPage.getLastOptionOfCreditCardTypeSelector())
                 .selectCreditCardExpiryDateMonthByIndex(bookHotelPage.getLastOptionOfCreditCardExpiryMonthSelector())
                 .selectCreditCardExpiryDateYearByIndex(bookHotelPage.getLastOptionOfCreditCardExpiryYearSelector())
-                .enterCreditCardCvvNum(TestData.get("TestData.BillingData.Valid.CreditCardNum"))
+                .enterCreditCardCvvNum(TestData.get("TestData.BillingData.Valid.CvvNum"))
                 .clickBookNow();
         Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), bookConfirmPageURL),
                 "User was not redirected to the Book Confirmation page after valid booking.");
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify First Name Can Not Contain Numbers",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify First Name Can Not Contain Numbers")
     public void verifyFirstNameCantContainNum() {
         bookHotelPage
                 .enterFirstName(TestData.get("TestData.BillingData.InValidFormat.FirstName"))
@@ -165,8 +153,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify First Name Can Not Be Empty",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify First Name Can Not Be Empty")
     public void verifyFirstNameCantBeEmpty() {
         bookHotelPage
                 .clickBookNow();
@@ -180,8 +167,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Last Name Can Not Contain Numbers",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Last Name Can Not Contain Numbers")
     public void verifyLastNameCantContainNum() {
         bookHotelPage
                 .enterLastName(TestData.get("TestData.BillingData.InValidFormat.LastName"))
@@ -192,8 +178,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Last Name Can Not Be Empty",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Last Name Can Not Be Empty")
     public void verifyLastNameCantBeEmpty() {
         bookHotelPage
                 .clickBookNow();
@@ -207,20 +192,18 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Credit Card Num Can Not Contain Characters",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Credit Card Num Can Not Contain Characters")
     public void verifyCCNumCantContainCharacters() {
         bookHotelPage
                 .enterCreditCardNum(TestData.get("TestData.BillingData.InValidFormat.CreditCardNum"))
                 .clickBookNow();
 
-        Assert.assertTrue(bookHotelPage.isLastNameFieldErrorMsgVisible(),
+        Assert.assertTrue(bookHotelPage.isCreditCardNumFieldErrorMsgVisible(),
                 "Credit card number error message should be visible when containing characters.");
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Credit Card Num Can Not Be Less Than Sixteen Digits",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Credit Card Num Can Not Be Less Than Sixteen Digits")
     public void verifyCCNumCantBeLessThanSixteenDigits() {
         bookHotelPage
                 .enterCreditCardNum(TestData.get("TestData.BillingData.InValidShort.CreditCardNum"))
@@ -235,8 +218,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Credit Card Num Can Not Be Empty",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Credit Card Num Can Not Be Empty")
     public void verifyCCNumCantBeEmpty() {
         bookHotelPage
                 .clickBookNow();
@@ -250,8 +232,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Error Msg For Not Selected CC Type",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Error Msg For Not Selected CC Type")
     public void verifyErrorMsgForNotSelectedCCType() {
         bookHotelPage
                 .clickBookNow();
@@ -265,8 +246,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Error Msg For Not Selected Expiry Month",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Error Msg For Not Selected Expiry Month")
     public void verifyErrorMsgForNotSelectedExpiryMonth() {
         bookHotelPage
                 .selectCreditCardExpiryDateYearByIndex(bookHotelPage.getLastOptionOfCreditCardExpiryYearSelector())
@@ -281,8 +261,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Error Msg For Not Selected Expiry Year",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Error Msg For Not Selected Expiry Year")
     public void verifyErrorMsgForNotSelectedExpiryYear() {
         bookHotelPage
                 .selectCreditCardExpiryDateMonthByIndex(bookHotelPage.getLastOptionOfCreditCardExpiryMonthSelector())
@@ -297,8 +276,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Error Msg For Not Selected Expiry Month And Year",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Error Msg For Not Selected Expiry Month And Year")
     public void verifyErrorMsgForNotSelectedExpiryMonthAndYear() {
         bookHotelPage
                 .clickBookNow();
@@ -312,8 +290,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify Error Msg Visibility When CC Cvv Has InValid Short Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Error Msg Visibility When CC Cvv Has InValid Short Data")
     public void verifyErrorMsgVisibilityWhenCCCvvHasInValidShortData() {
         bookHotelPage
                 .enterCreditCardCvvNum(TestData.get("TestData.BillingData.InValidShort.CvvNum"))
@@ -324,8 +301,7 @@ public class BookHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify CC Cvv Can Not Be Empty",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify CC Cvv Can Not Be Empty")
     public void verifyCCCvvCantBeEmpty() {
         bookHotelPage
                 .clickBookNow();

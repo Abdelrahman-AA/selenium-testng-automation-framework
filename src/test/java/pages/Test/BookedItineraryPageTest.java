@@ -67,24 +67,21 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Book Itinerary Page Opened",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Book Itinerary Page Opened")
     public void verifyBookItineraryPageOpened(){
         Assert.assertTrue(bookedItineraryPage.isBookItineraryPageMsgVisible(),
                 "Booked Itinerary page message is not visible.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Book Itinerary Page Table Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Book Itinerary Page Table Visible")
     public void verifyBookItineraryPageTableVisible(){
         Assert.assertTrue(bookedItineraryPage.isItineraryTableVisible(),
                 "Booked Itinerary table is not visible.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Find My Booking Via Search By Booking Order Id",
-            threadPoolSize = threadPoolSize)
+            description = "Should Find My Booking Via Search By Booking Order Id")
     public void verifyFindMyBookingViaSearchByBookingOrderId() {
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10));
@@ -98,8 +95,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Verify Data At Table When Search By Order Id",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify Data At Table When Search By Order Id")
     public void verifyDataAtTableWhenSearchByOrderId() {
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10));
@@ -122,8 +118,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Cancel The Hotel Booking By Order Id",
-            threadPoolSize = threadPoolSize)
+            description = "Should Cancel The Hotel Booking By Order Id")
     public void verifyCancelTheHotelBookingByOrderId(){
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10))
@@ -135,8 +130,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Cancel The Hotel Booking By Table Cancel Button",
-            threadPoolSize = threadPoolSize)
+            description = "Should Cancel The Hotel Booking By Table Cancel Button")
     public void verifyCancelTheHotelBookingByTableCancelButton(){
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10))
@@ -147,8 +141,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Cancel All Booking Itinerary",
-            threadPoolSize = threadPoolSize)
+            description = "Should Cancel All Booking Itinerary")
     public void verifyCancelAllBookingItinerary(){
         bookedItineraryPage
                 .checkSelectAllToCancelAtTable()
@@ -159,8 +152,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Go To Search Page By Clicking Search Hotel Button",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Go To Search Page By Clicking Search Hotel Button")
     public void verifyGoingToSearchPageByClickingSearchHotelButton(){
         bookedItineraryPage
                 .clickSearchHotelButton();
@@ -170,8 +162,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Go To Logout Page And Log Out By Clicking Logout Button",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Go To Logout Page And Log Out By Clicking Logout Button")
     public void verifyGoingToLogoutPageAndLoggingOutByClickingLogoutButton(){
         bookedItineraryPage
                 .clickLogoutButton();
@@ -189,8 +180,7 @@ public class BookedItineraryPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Verify All Booking Still Exist When Click Cancel Booking Button Without Any Booking Selection",
-            threadPoolSize = threadPoolSize)
+            description = "Should Verify All Booking Still Exist When Click Cancel Booking Button Without Any Booking Selection")
     public void verifyAllBookingStillExistWhenClickCancelBookingButtonWithoutAnyBookingSelection(){
         int firstBookingNum = bookedItineraryPage
                 .getTableNumOfRows();

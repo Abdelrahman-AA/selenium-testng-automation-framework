@@ -53,7 +53,6 @@ public class BaseTest {
     protected WebDriver getDriver() {
         return driverThreadLocal.get();
     }
-    protected final int threadPoolSize=4;
 
     @Parameters({"browser"})
     @BeforeMethod

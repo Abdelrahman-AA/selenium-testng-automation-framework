@@ -16,22 +16,19 @@ public class StaticBarAtLoggedPagesTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Static Bar To Be Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Static Bar To Be Visible")
     public void verifyStaticBarVisibility() {
         Assert.assertTrue(searchHotelPage.staticBar.isStaticBarVisible(), "Static bar is not visible on Search Hotel page.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Static Bar Elements To Be Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Static Bar Elements To Be Visible")
     public void verifyStaticBarElementsVisibility() {
         Assert.assertTrue(searchHotelPage.staticBar.isStaticBarElementsVisible(), "Static bar elements are not displayed properly.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Going To Booked Itinerary Page From Static Bar CTA And Static Bar Is Still Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Going To Booked Itinerary Page From Static Bar CTA And Static Bar Is Still Visible")
     public void verifyGoingToBookedItineraryPageFromStaticBarCtaAndStaticBarIsStillVisible() {
         bookedItineraryPage = searchHotelPage
                 .staticBar
@@ -44,8 +41,7 @@ public class StaticBarAtLoggedPagesTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Going To Change Password Page From Static Bar CTA And Static Bar Is Still Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Going To Change Password Page From Static Bar CTA And Static Bar Is Still Visible")
     public void verifyGoingToChangePasswordPageFromStaticBarCtaAndStaticBarIsStillVisible() {
         changePasswordPage = searchHotelPage
                 .staticBar
@@ -58,8 +54,7 @@ public class StaticBarAtLoggedPagesTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Going To Search Hotel Page From Another Logged Page And Static Bar Is Still Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Going To Search Hotel Page From Another Logged Page And Static Bar Is Still Visible")
     public void verifyGoingToSearchHotelPageFromAnotherLoggedPageAndStaticBarIsStillVisible() {
         changePasswordPage = searchHotelPage
                 .staticBar
@@ -77,9 +72,8 @@ public class StaticBarAtLoggedPagesTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(groups = {"sanity", "negative-path"},
-            description = "Should Going To Logged Out Page From Static Bar CTA And Static Bar Is Not Visible",
-            threadPoolSize = threadPoolSize)
+    @Test(groups =  {"smoke", "happy-path"},
+            description = "Should Going To Logged Out Page From Static Bar CTA And Static Bar Is Not Visible")
     public void verifyGoingToLoggedOutPageFromStaticBarCtaAndStaticBarIsNotVisible() {
         logoutPage = searchHotelPage
                 .staticBar

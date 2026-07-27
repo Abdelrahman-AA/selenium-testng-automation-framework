@@ -43,8 +43,7 @@ public class ChangePasswordPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Successflly Msg With Statement Content Appears When Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Successfully Msg With Statement Content Appears When Valid Data")
     public void verifyPasswordChangeSuccessfullyMsgWhenValidData() {
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.ValidChangePassword.ConfirmNewPassword");
@@ -62,8 +61,7 @@ public class ChangePasswordPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Change Successfully When Valid Data",
-            threadPoolSize = threadPoolSize)
+            description = "Should Password Change Successfully When Valid Data")
     public void verifyPasswordChangedSuccessfullyWhenValidData() {
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.ValidChangePassword.ConfirmNewPassword");
@@ -77,9 +75,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "Functional Failure: Backend rejected or failed to persist valid data; system denied a new session login with the successfully updated password.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When Confirm Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When Confirm Password Is Empty")
     public void verifyPasswordChangeErrorMsgWhenConfirmPasswordIsEmpty() {
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
         temporaryPass2 = empty;
@@ -96,9 +93,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for an empty 'Confirm Password' field.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When Confirm Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When Confirm Password Is Empty")
     public void verifyPasswordNotChangedWhenConfirmPasswordIsEmpty() {
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
         temporaryPass2 = empty;
@@ -116,9 +112,8 @@ public class ChangePasswordPageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When New Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When New Password Is Empty")
     public void verifyPasswordChangeErrorMsgWhenNewPasswordIsEmpty() {
         temporaryPass1 = empty;
         temporaryPass2 = TestData.get("TestData.ValidChangePassword.ConfirmNewPassword");
@@ -135,9 +130,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for an empty 'New Password' field.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When New Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When New Password Is Empty")
     public void verifyPasswordNotChangedWhenNewPasswordIsEmpty() {
         temporaryPass1 = empty;
         temporaryPass2 = TestData.get("TestData.ValidChangePassword.ConfirmNewPassword");
@@ -155,9 +149,8 @@ public class ChangePasswordPageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When New Password And Confirm Password Are Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When New Password And Confirm Password Are Empty")
     public void verifyPasswordChangeErrorMsgWhenNewPasswordAndConfirmPasswordAreEmpty() {
         temporaryPass1 = empty;
         temporaryPass2 = empty;
@@ -174,9 +167,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation when both fields are left empty.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When New Password And Confirm Password Are Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When New Password And Confirm Password Are Empty")
     public void verifyPasswordNotChangedWhenNewPasswordAndConfirmPasswordAreEmpty() {
         temporaryPass1 = empty;
         temporaryPass2 = empty;
@@ -190,9 +182,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "Security Flaw: Backend processed an empty form submission; system allowed a new session login using an empty password.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When New Password Is InValid Short",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When New Password Is InValid Short")
     public void verifyPasswordChangeErrorMsgWhenNewPasswordIsInValidShort() {
         temporaryPass1 = TestData.get("TestData.InvalidShortChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.InvalidShortChangePassword.ConfirmNewPassword");
@@ -209,9 +200,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for a password below minimum length.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When New Password Is InValid Short",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When New Password Is InValid Short")
     public void verifyPasswordNotChangedWhenNewPasswordIsInValidShort() {
         temporaryPass1 = TestData.get("TestData.InvalidShortChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.InvalidShortChangePassword.ConfirmNewPassword");
@@ -225,9 +215,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "Security Policy Violation: Backend stored the update; system allowed a new session login using a password that violates length policies.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When New Password Miss Match",
-            threadPoolSize =threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When New Password Miss Match")
     public void verifyPasswordChangeErrorMsgWhenNewPasswordMissMatchConfirmPassword() {
         temporaryPass1 = TestData.get("TestData.InvalidNotMatchChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.InvalidNotMatchChangePassword.ConfirmNewPassword");
@@ -244,9 +233,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for mismatching passwords.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When New Password Miss Match Confirm PassWord",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When New Password Miss Match Confirm PassWord")
     public void verifyPasswordNotChangedWhenNewPasswordMissMatchConfirmPasswordByBothMissMatchedPasswords() {
         temporaryPass1 = TestData.get("TestData.InvalidNotMatchChangePassword.NewPassword");
         temporaryPass2 = TestData.get("TestData.InvalidNotMatchChangePassword.ConfirmNewPassword");
@@ -264,9 +252,8 @@ public class ChangePasswordPageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When Current Password Is Worng",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When Current Password Is Worng")
     public void verifyPasswordChangeErrorMsgWhenCurrentPasswordIsWrong() {
         currentPassValueTesting = "adfj@#DOP";
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
@@ -284,9 +271,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for an incorrect 'Current Password'.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When Current Password Is Wrong",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When Current Password Is Wrong")
     public void verifyPasswordNotChangedWhenCurrentPasswordIsWrong() {
         currentPassValueTesting = "adfj@#DOP";
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
@@ -301,9 +287,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "Authentication Bypass: Backend authorized the password change; system allowed a new session login despite a wrong current password.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When Current Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When Current Password Is Empty")
     public void verifyPasswordChangeErrorMsgWhenCurrentPasswordIsEmpty() {
         currentPassValueTesting = empty;
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
@@ -321,9 +306,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "UI Message Mismatch: The displayed error message text does not match the expected validation for an empty 'Current Password' field.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Password Dont Change When Current Password Is Empty",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Password Dont Change When Current Password Is Empty")
     public void verifyPasswordNotChangedWhenCurrentPasswordIsEmpty() {
         currentPassValueTesting = empty;
         temporaryPass1 = TestData.get("TestData.ValidChangePassword.NewPassword");
@@ -338,9 +322,8 @@ public class ChangePasswordPageTest extends BaseTest {
                 "Authentication Bypass: Backend authorized the password change; system allowed a new session login despite an empty current password field.");
     }
 
-    @Test(groups = {"smoke", "happy-path"},
-            description = "Should Error Msg With Statement Content Appears When Submit With Empty Fields",
-            threadPoolSize = threadPoolSize)
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Error Msg With Statement Content Appears When Submit With Empty Fields")
     public void verifyPasswordChangeErrorMsgWhenSubmitWithEmptyFields() {
         currentPassValueTesting = empty;
         temporaryPass1 = empty;

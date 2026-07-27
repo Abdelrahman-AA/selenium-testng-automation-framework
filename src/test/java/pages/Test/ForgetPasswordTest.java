@@ -19,8 +19,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Receive Email To Reset Password",
-            threadPoolSize = threadPoolSize)
+            description = "Should Receive Email To Reset Password")
     public void verifySendingEmailToResetPasswordWhenEnteringRegisteredEmail() {
         String randomString = getRandomString(3);
         forgetPasswordPage
@@ -42,8 +41,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Still Able To login With Original Password When Received Email To Reset Password And Dont Reset It",
-            threadPoolSize = threadPoolSize)
+            description = "Should Still Able To login With Original Password When Received Email To Reset Password And Dont Reset It")
     public void verifyStillAbleTOLoginWithOriginalPasswordWhileNotResetPasswordFromEmail() {
         String randomString = getRandomString(3);
         searchHotelPage = forgetPasswordPage
@@ -72,8 +70,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Empty Email Field When Click Reset When Valid Email",
-            threadPoolSize = threadPoolSize)
+            description = "Should Empty Email Field When Click Reset When Valid Email")
     public void verifyResetEmailFieldAfterEnterEmailAndClickResetWhenValidEmail() {
         forgetPasswordPage
                 .enterEmailField(TestData.get("TestData.ValidRegistration.Email"))
@@ -84,8 +81,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Navigate Back To Login Page When Clicking Back To Login CTA",
-            threadPoolSize = threadPoolSize)
+            description = "Should Navigate Back To Login Page When Clicking Back To Login CTA")
     public void verifyNavigateBackToLoginPageWhenClickingBackToLoginCTA() {
         forgetPasswordPage
                 .clickBackToLoginPageCta();
@@ -95,8 +91,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Remain Empty Email Field When Click Reset When Email Field Is Empty",
-            threadPoolSize = threadPoolSize)
+            description = "Should Remain Empty Email Field When Click Reset When Email Field Is Empty")
     public void verifyResetEmailFieldWhenClickResetWhileEmailFieldIsEmpty() {
         forgetPasswordPage
                 .clickResetButtonCta();
@@ -106,8 +101,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg Appear When Enter Not Registered Email With Msg Statement Content",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg Appear When Enter Not Registered Email With Msg Statement Content")
     public void verifyErrorMsgAppearWhenEnterNotRegisteredEmailWithMsgStatementContent() {
         String randomString = getRandomString(3);
         forgetPasswordPage
@@ -123,8 +117,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg Appear When Enter Empty Email With Msg Statement Content",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg Appear When Enter Empty Email With Msg Statement Content")
     public void verifyErrorMsgAppearWhenEnterEmptyEmailWithMsgStatementContent() {
         forgetPasswordPage
                 .enterEmailAndSubmit(empty);
@@ -139,8 +132,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msg Appear When Enter Wrong Email Format With Msg Statement Content",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msg Appear When Enter Wrong Email Format With Msg Statement Content")
     public void verifyErrorMsgAppearWhenEnterWrongEmailFormatWithMsgStatementContent() {
         forgetPasswordPage
                 .enterEmailAndSubmit(TestData.get("TestData.InvalidShortRegistration.Email"));
@@ -155,8 +147,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Empty Email Field When Click Reset When InValid Email",
-            threadPoolSize = threadPoolSize)
+            description = "Should Empty Email Field When Click Reset When InValid Email")
     public void verifyResetEmailFieldAfterEnterEmailAndClickResetWhenInValidEmail() {
         forgetPasswordPage
                 .enterEmailField(TestData.get("TestData.InvalidShortRegistration.Email"))
@@ -167,8 +158,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Empty Email Field When Click Reset After Email Field Error Msg Appear When InValid Email Format",
-            threadPoolSize = threadPoolSize)
+            description = "Should Empty Email Field When Click Reset After Email Field Error Msg Appear When InValid Email Format")
     public void verifyResetEmailFieldAfterEnterEmailAndClickResetAfterEmailFieldErrorMsgAppearWhenInValidEmailFormat() {
         forgetPasswordPage
                 .enterEmailField(TestData.get("TestData.InvalidShortRegistration.Email"))
@@ -187,8 +177,7 @@ public class ForgetPasswordTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Empty Email Field When Click Reset After Email Field Error Msg Appear When Not Registered Email Format",
-            threadPoolSize = threadPoolSize)
+            description = "Should Empty Email Field When Click Reset After Email Field Error Msg Appear When Not Registered Email Format")
     public void verifyResetEmailFieldAfterEnterEmailAndClickResetAfterEmailFieldErrorMsgAppearWhenNotRegisteredEmailFormat() {
         String randomString = getRandomString(3);
         forgetPasswordPage

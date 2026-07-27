@@ -19,16 +19,14 @@ public class LogoutPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go To Logout WebPage",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go To Logout WebPage")
     public void verifyGoingToLogoutPage() {
         Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL),
                 "User was not redirected to the Logout page after clicking Logout CTA.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Logout Page Msg Appears",
-            threadPoolSize = threadPoolSize)
+            description = "Should Logout Page Msg Appears")
     public void verifySuccessfullyLogoutPageMsgIsVisible() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL),
@@ -45,8 +43,7 @@ public class LogoutPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Able To Going To HomePage When Clicking On Login Again CTA",
-            threadPoolSize = threadPoolSize)
+            description = "Should Able To Going To HomePage When Clicking On Login Again CTA")
     public void verifyGoingToHomePageByClickingOnLoginAgainCta() {
         logoutPage
                 .clickToLoginAgainCTA();

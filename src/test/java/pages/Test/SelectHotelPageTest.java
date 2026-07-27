@@ -40,24 +40,21 @@ public class SelectHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Result Table Be Visible",
-            threadPoolSize = threadPoolSize)
+            description = "Should Result Table Be Visible")
     public void verifyTableOfHotelsIsVisible() {
         Assert.assertTrue(selectHotelPage.isSearchResultsTableVisible());
     }
 
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Result Data At Table Be The Same Of Enterd Data At Search",
-            threadPoolSize = threadPoolSize)
+            description = "Should Result Data At Table Be The Same Of Enterd Data At Search")
     public void verifyTableOfOptionsAgainstSearchedData() {
         Assert.assertTrue(selectHotelPage.isTableDataReturnedTrue(testedData, testedArrivalDate, testedDepartureDate),
                 "Returned table data does not match the search parameters!");
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Return To Search Form When Click Cancel After Search",
-            threadPoolSize = threadPoolSize)
+            description = "Should Return To Search Form When Click Cancel After Search")
     public void verifyReturnToSearchFormWhenClickCancel() {
         searchHotelPage = selectHotelPage
                 .clickCancel();
@@ -67,8 +64,7 @@ public class SelectHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "happy-path"},
-            description = "Should Go To Book Hotel Page When Click Continue After Select Hotel",
-            threadPoolSize = threadPoolSize)
+            description = "Should Go To Book Hotel Page When Click Continue After Select Hotel")
     public void verifyGoingToBookHotelPageAfterSelectHotelAndClickContinue() {
         selectHotelPage
                 .selectRadioButtonByIndex(selectHotelPage.getResultsTableRowCount() - 1)
@@ -79,13 +75,12 @@ public class SelectHotelPageTest extends BaseTest {
     }
 
     @Test(groups = {"sanity", "negative-path"},
-            description = "Should Error Msgs With Statement Content Appear When Click Continue Without Select Hotel",
-            threadPoolSize = threadPoolSize)
+            description = "Should Error Msgs With Statement Content Appear When Click Continue Without Select Hotel")
     public void verifyErrorMsgWhenClickContinueWithoutSelectHotel() {
         selectHotelPage
                 .clickContinue();
 
-        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), searchHotelPageURL),
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), selectHotelPageURL),
                 "User navigated away from Search Hotel page even without selecting a radio button!");
         Assert.assertTrue(selectHotelPage.isContinueErrorMsgVisible(),
                 "Error message is not displayed when clicking Continue without choosing a hotel!");

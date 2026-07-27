@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchHotelPage extends BasePage {
@@ -102,7 +101,7 @@ public class SearchHotelPage extends BasePage {
         return eActions.getDropDownTextOfSelectionByIndex(locationSelector, index);
     }
 
-    public String geDefaultOfHotels() {
+    public String getDefaultOfHotels() {
         return eActions.getDropDownDefaultOptionText(hotelsSelector);
     }
 
