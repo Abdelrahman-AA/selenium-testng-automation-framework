@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 import testData.TestData;
 
 import java.util.List;
-import java.util.Locale;
 
 import static utils.helpers.Helpers.*;
 
@@ -63,110 +62,168 @@ public class BookConfirmPageTest extends BaseTest {
                         TestData.get("TestData.BillingData.Valid.CreditCardNum"));
     }
 
-    @Test
-    public void verifyHotelNameAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getHotelNameFixedFieldText(),testedData.get(1));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Hotel Name Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyHotelNameAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getHotelNameFixedFieldText(), testedData.get(1),
+                "Hotel name does not match the selected one.");
     }
 
-    @Test
-    public void verifyLocationAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getLocationFixedFieldText(),testedData.get(0));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Location Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyLocationAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getLocationFixedFieldText(), testedData.get(0),
+                "Location does not match the selected one.");
     }
 
-    @Test
-    public void verifyRoomTypeAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getRoomTypeFixedFieldText(),testedData.get(2));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Room Type Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyRoomTypeAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getRoomTypeFixedFieldText(), testedData.get(2),
+                "Room type does not match the selected one.");
     }
 
-    @Test
-    public void verifyArrivalDateAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getArrivalDateFixedField(),testedArrivalDate);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Arrival Date Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyArrivalDateAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getArrivalDateFixedField(), testedArrivalDate,
+                "Arrival date does not match the selected one.");
     }
 
-    @Test
-    public void verifyDepartureDateAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getDepartureDateFixedField(),testedDepartureDate);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Departure Date Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyDepartureDateAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getDepartureDateFixedField(), testedDepartureDate,
+                "Departure date does not match the selected one.");
     }
 
-    @Test
-    public void verifyTotalRoomsAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getTotalRoomsFixedFieldText().split(" ")[0],testedData.get(3).split(" ")[0]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Total Rooms Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyTotalRoomsAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getTotalRoomsFixedFieldText().split(" ")[0], testedData.get(3).split(" ")[0],
+                "Total rooms count does not match the selected one.");
     }
 
-    @Test
-    public void verifyAdultsPerRoomAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getAdultsPerRoomFixedFieldText().split(" ")[0],testedData.get(4).split(" ")[0]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Adults Per Room Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyAdultsPerRoomAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getAdultsPerRoomFixedFieldText().split(" ")[0], testedData.get(4).split(" ")[0],
+                "Adults per room count does not match the selected one.");
     }
 
-    @Test
-    public void verifyChildrenPerRoomAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getChildrenPerRoomFixedFieldText().split(" ")[0],testedData.get(5).split(" ")[0]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Children Per Room Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyChildrenPerRoomAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getChildrenPerRoomFixedFieldText().split(" ")[0], testedData.get(5).split(" ")[0],
+                "Children per room count does not match the selected one.");
     }
 
-    @Test
-    public void verifyPricePerNightAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getPricePerNightFixedFieldText().split(" ")[2],testedData.get(6).split(" ")[2]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Price Per Night Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyPricePerNightAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getPricePerNightFixedFieldText().split(" ")[2], testedData.get(6).split(" ")[2],
+                "Price per night does not match the selected one.");
     }
 
-    @Test
-    public void verifyTotalPriceAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getTotalPriceFixedFieldText().split(" ")[2],testedData.get(7).split(" ")[2]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Total Price Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyTotalPriceAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getTotalPriceFixedFieldText().split(" ")[2], testedData.get(7).split(" ")[2],
+                "Total price does not match the selected one.");
     }
 
-    @Test
-    public void verifyGstAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getGstFixedFieldText().split(" ")[2],testedData.get(8).split(" ")[2]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Gst Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyGstAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getGstFixedFieldText().split(" ")[2], testedData.get(8).split(" ")[2],
+                "GST value does not match the selected one.");
     }
 
-    @Test
-    public void verifyFinalBillingPriceAgainstSelected(){
-        Assert.assertEquals(bookConfirmPage.getFinalBillingPriceFixedFieldText().split(" ")[2],testedData.get(9).split(" ")[2]);
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Final Billing Price Against Selected",
+            threadPoolSize = threadPoolSize)
+    public void verifyFinalBillingPriceAgainstSelected() {
+        Assert.assertEquals(bookConfirmPage.getFinalBillingPriceFixedFieldText().split(" ")[2], testedData.get(9).split(" ")[2],
+                "Final billing price does not match the selected one.");
     }
 
-    @Test
-    public void verifyFirstNameAgainstEntered(){
-        Assert.assertEquals(bookConfirmPage.getFirstNameFixedFieldText(),TestData.get("TestData.BillingData.Valid.FirstName"));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify First Name Against Entered",
+            threadPoolSize = threadPoolSize)
+    public void verifyFirstNameAgainstEntered() {
+        Assert.assertEquals(bookConfirmPage.getFirstNameFixedFieldText(), TestData.get("TestData.BillingData.Valid.FirstName"),
+                "First name does not match the entered one.");
     }
 
-    @Test
-    public void verifyLastNameAgainstEntered(){
-        Assert.assertEquals(bookConfirmPage.getLastNameFixedFieldText(),TestData.get("TestData.BillingData.Valid.LastName"));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Last Name Against Entered",
+            threadPoolSize = threadPoolSize)
+    public void verifyLastNameAgainstEntered() {
+        Assert.assertEquals(bookConfirmPage.getLastNameFixedFieldText(), TestData.get("TestData.BillingData.Valid.LastName"),
+                "Last name does not match the entered one.");
     }
 
-    @Test
-    public void verifyBillingAddressAgainstEntered(){
-        Assert.assertEquals(bookConfirmPage.getBillingAddressFixedFieldText(),TestData.get("TestData.BillingData.Valid.BillingAddress"));
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Verify Billing Address Against Entered",
+            threadPoolSize = threadPoolSize)
+    public void verifyBillingAddressAgainstEntered() {
+        Assert.assertEquals(bookConfirmPage.getBillingAddressFixedFieldText(), TestData.get("TestData.BillingData.Valid.BillingAddress"),
+                "Billing address does not match the entered one.");
     }
 
-    @Test
-    public void verifyGoingToSearchHotelPageByClickingOnSearchHotelButton(){
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Able To Go To Search Hotel Page By Clicking On Search Hotel Button",
+            threadPoolSize = threadPoolSize)
+    public void verifyGoingToSearchHotelPageByClickingOnSearchHotelButton() {
         bookConfirmPage
                 .clickSearchHotelButton();
 
-        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(),searchHotelPageURL));
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), searchHotelPageURL),
+                "Failed to navigate to Search Hotel page from Booking Confirmation page.");
     }
 
-    @Test
-    public void verifyGoingToBookItineraryPageByClickingOnMyItineraryButton(){
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Able To Go To Book Itinerary Page By Clicking On My Itinerary Button",
+            threadPoolSize = threadPoolSize)
+    public void verifyGoingToBookItineraryPageByClickingOnMyItineraryButton() {
         bookConfirmPage
                 .clickMyItineraryButton();
 
-        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(),bookedItineraryURL));
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), bookedItineraryURL),
+                "Failed to navigate to Booked Itinerary page from Booking Confirmation page.");
     }
 
-    @Test
-    public void verifyLoggingOutAndGoingToLogoutPageByClickingOnLogoutButton(){
+    @Test(groups = {"smoke", "happy-path"},
+            description = "Should Able To Log Out And Go To Logout Page By Clicking On Logout Button",
+            threadPoolSize = threadPoolSize)
+    public void verifyLoggingOutAndGoingToLogoutPageByClickingOnLogoutButton() {
         bookConfirmPage
                 .clickLogoutButton();
 
-        SoftAssert softAssert =new SoftAssert();
-        softAssert.assertFalse(bookConfirmPage.staticBar.isStaticBarVisible());
-        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(),logoutURL));
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertFalse(bookConfirmPage.staticBar.isStaticBarVisible(),
+                "Static bar should not be visible after logging out.");
+        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL),
+                "User was not redirected to the logout URL.");
         softAssert.assertAll();
     }
-//--------------------------------------------------------------------
-    @Test
-    public void verifyOrderNumNotEmpty(){
-        Assert.assertFalse(bookConfirmPage.getOrderNoFixedFieldText().isEmpty());
+
+    @Test(groups = {"sanity", "negative-path"},
+            description = "Should Verify Order Num Is Not Empty",
+            threadPoolSize = threadPoolSize)
+    public void verifyOrderNumNotEmpty() {
+        Assert.assertFalse(bookConfirmPage.getOrderNoFixedFieldText().isEmpty(),
+                "Order number field should not be empty.");
     }
 }

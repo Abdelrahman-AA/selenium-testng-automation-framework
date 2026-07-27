@@ -16,7 +16,6 @@ public class HomePageTest extends BaseTest {
     private final String registeredPassword = TestData.get("TestData.ValidRegisteredAccount.Password");
     private final String notRegisteredUserName = TestData.get("TestData.NotRegisteredAccount.UserName");
     private final String notRegisteredPassword = TestData.get("TestData.NotRegisteredAccount.Password");
-    private final String empty = "";
 
     @BeforeMethod
     public void initializePage() {

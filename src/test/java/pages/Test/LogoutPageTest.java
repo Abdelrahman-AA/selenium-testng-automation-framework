@@ -22,7 +22,8 @@ public class LogoutPageTest extends BaseTest {
             description = "Should Go To Logout WebPage",
             threadPoolSize = threadPoolSize)
     public void verifyGoingToLogoutPage() {
-        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL), "User was not redirected to the Logout page after clicking Logout CTA.");
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL),
+                "User was not redirected to the Logout page after clicking Logout CTA.");
     }
 
     @Test(groups = {"smoke", "happy-path"},
@@ -30,12 +31,16 @@ public class LogoutPageTest extends BaseTest {
             threadPoolSize = threadPoolSize)
     public void verifySuccessfullyLogoutPageMsgIsVisible() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL), "User was not redirected to the Logout page.");
-        softAssert.assertTrue(logoutPage.isSuccessfullyLoggedOutMsgVisible(), "Successfully logged out message is not displayed on the Logout page.");
+        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL),
+                "User was not redirected to the Logout page.");
+        softAssert.assertTrue(logoutPage.isSuccessfullyLoggedOutMsgVisible(),
+                "Successfully logged out message is not displayed on the Logout page.");
         getBack(getDriver());
-        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible());
+        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible(),
+                "Static bar should not be visible after going back from the logout page.");
         navigateToURL(getDriver(), searchHotelPageURL);
-        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible());
+        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible(),
+                "Static bar should not be visible when navigating directly to the search hotel page after logout.");
         softAssert.assertAll();
     }
 
@@ -46,6 +51,7 @@ public class LogoutPageTest extends BaseTest {
         logoutPage
                 .clickToLoginAgainCTA();
 
-        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), homePageURL + "index.php"), "Failed to navigate back to the Home/Login page after clicking 'Click here to login again'.");
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(), homePageURL + "index.php"),
+                "Failed to navigate back to the Home/Login page after clicking 'Click here to login again'.");
     }
 }
