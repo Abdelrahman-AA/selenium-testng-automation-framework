@@ -13,6 +13,7 @@ public class ElementActions {
 
     //<editor-fold desc="Variables">
     private static final Duration defaultTimeout = Duration.ofSeconds(5);
+    private static final Duration defaultTimeoutTwo = Duration.ofSeconds(60);
     //</editor-fold>
 
     //<editor-fold desc="Configurations">
@@ -34,8 +35,16 @@ public class ElementActions {
         return getWait(defaultTimeout).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
+    private WebElement getElementIfVisibleWithLongTimeout(By by) {
+        return getWait(defaultTimeoutTwo).until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
     private WebElement getElementIfClickable(By by) {
         return getWait(defaultTimeout).until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    private WebElement getElementIfClickableWithLongTimeout(By by) {
+        return getWait(defaultTimeoutTwo).until(ExpectedConditions.elementToBeClickable(by));
     }
     //</editor-fold>
 
@@ -54,6 +63,10 @@ public class ElementActions {
 
     public void clickWebElement(By by) {
         getElementIfClickable(by).click();
+    }
+
+    public void clickWebElementWithLongTimeout(By by) {
+        getElementIfClickableWithLongTimeout(by).click();
     }
 
     public String getElementText(By by) {
@@ -130,7 +143,7 @@ public class ElementActions {
     //<editor-fold desc="Table Actions">
     public List<List<String>> getTableDataAsMatrix(By tableLocator) {
         List<List<String>> tableData = new ArrayList<>();
-        WebElement table = getElementIfVisible(tableLocator);
+        WebElement table = getElementIfVisibleWithLongTimeout(tableLocator);
         List<WebElement> rows = table.findElements(By.tagName("tr"));
 
         for (int i = 1; i < rows.size(); i++) {
@@ -161,11 +174,13 @@ public class ElementActions {
     }
 
     public List<String> getRowIds(By tableIdHoldersLocator) {
+        List < String > idsList = new ArrayList<>();
+
+        if(getElementIfVisibleWithLongTimeout(tableIdHoldersLocator).isDisplayed()){
         List<WebElement> checkboxes =driver.findElements(tableIdHoldersLocator);
-                List < String > idsList = new ArrayList<>();
         for (WebElement checkbox : checkboxes) {
             idsList.add(checkbox.getAttribute("value"));
-        }
+        }}
         return idsList;
     }
     //</editor-fold>

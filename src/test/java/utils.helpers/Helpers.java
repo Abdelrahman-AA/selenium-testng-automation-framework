@@ -74,4 +74,12 @@ public class Helpers {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale);
         return   ChronoUnit.DAYS.between(LocalDate.parse(firstDate, formatter), LocalDate.parse(secondDate, formatter));
     }
+
+    public static void getBack(WebDriver driver){
+        driver.navigate().back();
+    }
+
+    public static void navigateToURL(WebDriver driver,String url){
+        driver.navigate().to(url);
+    }
 }

@@ -5,14 +5,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import static utils.helpers.Helpers.isCurrentUrlEqualTo;
+import static utils.helpers.Helpers.*;
 
 public class LogoutPageTest extends BaseTest {
 
     @BeforeMethod
     public void initializePage() {
-        logoutPage = homePage
-                .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL)
+        searchHotelPage = homePage
+                .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);
+        logoutPage = searchHotelPage
                 .staticBar
                 .clickLogoutCTA();
     }
@@ -31,6 +32,10 @@ public class LogoutPageTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(), logoutURL), "User was not redirected to the Logout page.");
         softAssert.assertTrue(logoutPage.isSuccessfullyLoggedOutMsgVisible(), "Successfully logged out message is not displayed on the Logout page.");
+        getBack(getDriver());
+        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible());
+        navigateToURL(getDriver(), searchHotelPageURL);
+        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible());
         softAssert.assertAll();
     }
 

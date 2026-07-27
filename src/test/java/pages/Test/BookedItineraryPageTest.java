@@ -5,11 +5,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import testData.TestData;
-
 import java.util.List;
 import java.util.Locale;
 
-import static utils.helpers.Helpers.getDifferenceBetweenTwoDatesByDays;
+import static utils.helpers.Helpers.*;
 
 public class BookedItineraryPageTest extends BaseTest {
 
@@ -81,6 +80,7 @@ public class BookedItineraryPageTest extends BaseTest {
     public void verifyFindMyBookingViaSearchByBookingOrderId() {
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10));
+
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertTrue(bookedItineraryPage.isSearchResultMsgVisible());
         softAssert.assertEquals(bookedItineraryPage.getTableNumOfRows(),1);
@@ -91,6 +91,7 @@ public class BookedItineraryPageTest extends BaseTest {
     public void verifyDataAtTableWhenSearchByOrderId() {
         bookedItineraryPage
                 .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10));
+
         Assert.assertTrue(bookedItineraryPage.isOrderDetailsCorrect(
                 0,
                 testedData.get(10),
@@ -105,5 +106,70 @@ public class BookedItineraryPageTest extends BaseTest {
                 testedData.get(2),
                 testedData.get(6).split(" ")[2].trim(),
                 testedData.get(9).split(" ")[2].trim()));
+    }
+
+    @Test
+    public void verifyCancelTheHotelBookingByOrderId(){
+        bookedItineraryPage
+                .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10))
+                .checkSelectCancelBoxByIndex(0)
+                .clickCancelSelectedButton();
+
+ Assert.assertEquals(bookedItineraryPage.enterIdAtSearchOrderFieldAndClickGo(testedData.get(10)).getTableNumOfRows(),0);
+    }
+
+    @Test
+    public void verifyCancelTheHotelBookingByTableCancelButton(){
+        bookedItineraryPage
+                .enterIdAtSearchOrderFieldAndClickGo(testedData.get(10))
+                .clickCancelButtonByIndex(0);
+
+        Assert.assertEquals(bookedItineraryPage.enterIdAtSearchOrderFieldAndClickGo(testedData.get(10)).getTableNumOfRows(),0);
+    }
+
+    @Test
+    public void verifyCancelAllBookingItinerary(){
+        bookedItineraryPage
+                .checkSelectAllToCancelAtTable()
+                        .clickCancelSelectedButton();
+
+        Assert.assertEquals(bookedItineraryPage.getTableNumOfRows(),0);
+    }
+
+    @Test
+    public void verifyGoingToSearchPageByClickingSearchHotelButton(){
+        bookedItineraryPage
+                .clickSearchHotelButton();
+
+        Assert.assertTrue(isCurrentUrlEqualTo(getDriver(),searchHotelPageURL));
+    }
+
+    @Test
+    public void verifyGoingToLogoutPageAndLoggingOutByClickingLogoutButton(){
+        bookedItineraryPage
+                .clickLogoutButton();
+
+        SoftAssert softAssert =new SoftAssert();
+        softAssert.assertTrue(isCurrentUrlEqualTo(getDriver(),logoutURL));
+        getBack(getDriver());
+        softAssert.assertFalse(bookedItineraryPage.staticBar.isStaticBarVisible());
+        navigateToURL(getDriver(),searchHotelPageURL);
+        softAssert.assertFalse(searchHotelPage.staticBar.isStaticBarVisible());
+        softAssert.assertAll();
+    }
+
+    //-------------------------------------------
+    @Test
+    public void verifyAllBookingStillExistWhenClickCancelBookingButtonWithoutAnyBookingSelection(){
+        int firstBookingNum=bookedItineraryPage
+                .getTableNumOfRows();
+
+        bookedItineraryPage
+                .clickCancelSelectedButton();
+
+        int secondBookingNum=bookedItineraryPage
+                .getTableNumOfRows();
+
+        Assert.assertEquals(secondBookingNum, firstBookingNum);
     }
 }

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -28,8 +29,15 @@ public class BookedItineraryPage extends BasePage {
     private final By searchOrderGoButton = By.id("search_hotel_id");
     private final By itineraryTable = By.cssSelector("td[align='right'] table");
     private final By tableChekBoxSelectAll = By.id("check_all");
-    private final By tableCheckBoxForRows = By.name("input[value='" + tableOrdersValueId + "']");
-    private final By tableRowsCancelButton = By.id("btn_id_" + tableOrdersValueId);
+
+    private By getTableCheckBoxForRows(String id) {
+        return By.cssSelector("input[value='" + id + "']");
+    }
+
+    private By getTableRowsCancelButton(String id) {
+        return By.id("btn_id_" + id);
+    }
+
     private final By tableRowsIds = By.xpath("//input[@name='ids[]']");
     private final By cancelSelectedButton = By.cssSelector("input[value='Cancel Selected']");
     private final By searchHotelButton = By.xpath("//input[@id='search_hotel']");
@@ -45,12 +53,13 @@ public class BookedItineraryPage extends BasePage {
     }
 
     public BookedItineraryPage clickSearchOrderGoButton() {
-        eActions.clickWebElement(searchOrderGoButton);
+        eActions.clickWebElementWithLongTimeout(searchOrderGoButton);
         return this;
     }
 
     public BookedItineraryPage clickCancelSelectedButton() {
-        eActions.clickWebElement(cancelSelectedButton);
+        eActions.clickWebElementWithLongTimeout(cancelSelectedButton);
+        driver.switchTo().alert().accept();
         return this;
     }
 
@@ -76,13 +85,14 @@ public class BookedItineraryPage extends BasePage {
 
     public BookedItineraryPage checkSelectCancelBoxByIndex(int index) {
         tableOrdersValueId = getTableRowsIds().get(index);
-        eActions.clickWebElement(tableCheckBoxForRows);
+        eActions.clickWebElement(getTableCheckBoxForRows(tableOrdersValueId));
         return this;
     }
 
     public BookedItineraryPage clickCancelButtonByIndex(int index) {
         tableOrdersValueId = getTableRowsIds().get(index);
-        eActions.clickWebElement(tableRowsCancelButton);
+        eActions.clickWebElementWithLongTimeout(getTableRowsCancelButton(tableOrdersValueId));
+        driver.switchTo().alert().accept();
         return this;
     }
     //</editor-fold>
@@ -97,7 +107,9 @@ public class BookedItineraryPage extends BasePage {
     }
 
     public int getTableNumOfRows() {
-        return eActions.getTableRowsCount(eActions.getTableDataAsMatrix(itineraryTable));
+         try { return eActions.getTableRowsCount(eActions.getTableDataAsMatrix(itineraryTable));} catch (Exception e) {
+             return 0;
+         }
     }
     //</editor-fold>
 
