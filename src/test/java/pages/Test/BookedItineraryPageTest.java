@@ -98,7 +98,7 @@ public class BookedItineraryPageTest extends BaseTest {
                 testedData.get(0),
                 testedData.get(3).split(" ")[0].trim(),
                 TestData.get("TestData.BillingData.Valid.FirstName"),
-                TestData.get("TestData.BillingData.Valid.FirstName"),
+                TestData.get("TestData.BillingData.Valid.LastName"),
                 testedArrivalDate,
                 testedDepartureDate,
                 String.valueOf(getDifferenceBetweenTwoDatesByDays(testedArrivalDate,testedDepartureDate, Locale.UK)),
