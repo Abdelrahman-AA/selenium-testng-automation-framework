@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Adactin Hotel App Suite">
+
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="pages.Test.HomePageTest"/>
+            <class name="pages.Test.RegisterPageTest"/>
+            <class name="pages.Test.SearchHotelPageTest"/>
+            <class name="pages.Test.SelectHotelPageTest"/>
+            <class name="pages.Test.BookHotelPageTest"/>
+            <class name="pages.Test.BookConfirmPageTest"/>
+            <class name="pages.Test.BookedItineraryPageTest"/>
+            <class name="pages.Test.ChangePasswordPageTest"/>
+            <class name="pages.Test.ForgetPasswordTest"/>
+            <class name="pages.Test.LogoutPageTest"/>
+            <class name="pages.Test.StaticBarAtLoggedPagesTest"/>
+        </classes>
+    </test>
+
+    <test name="Sanity and Negative Tests">
+        <groups>
+            <run>
+                <include name="sanity"/>
+                <include name="negative-path"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="pages.Test.HomePageTest"/>
+            <class name="pages.Test.RegisterPageTest"/>
+            <class name="pages.Test.SearchHotelPageTest"/>
+            <class name="pages.Test.SelectHotelPageTest"/>
+            <class name="pages.Test.BookHotelPageTest"/>
+            <class name="pages.Test.BookConfirmPageTest"/>
+            <class name="pages.Test.BookedItineraryPageTest"/>
+            <class name="pages.Test.ChangePasswordPageTest"/>
+            <class name="pages.Test.ForgetPasswordTest"/>
+            <class name="pages.Test.LogoutPageTest"/>
+            <class name="pages.Test.StaticBarAtLoggedPagesTest"/>
+        </classes>
+    </test>
+
+</suite>
