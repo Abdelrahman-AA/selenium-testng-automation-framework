@@ -20,14 +20,14 @@ public class ChangePasswordPageTest extends BaseTest {
     private final String userName = TestData.get("TestData.ValidRegisteredAccount.UserName");
     private String errorMsgTesting;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         changePasswordPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL)
                 .staticBar.clickChangePasswordCTA();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDownCleanUp() {
         if (sessionId != null) {
             if (temporaryPass1 != null) {

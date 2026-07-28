@@ -11,7 +11,7 @@ import static utils.helpers.Helpers.isCurrentUrlEqualTo;
 
 public class ForgetPasswordTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         forgetPasswordPage = homePage
                 .openHomePageURL(homePageURL)
