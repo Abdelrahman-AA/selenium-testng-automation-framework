@@ -23,7 +23,7 @@ public class SearchHotelPageTest extends BaseTest {
     private final String textNotDate = TestData.get("TestData.Date.TextNotDate");
 
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         searchHotelPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchHotelPage extends BasePage {
@@ -182,17 +183,20 @@ public class SearchHotelPage extends BasePage {
     }
 
     public List<String> getTestedDataForSave(
-            int locationIndex, int hotelIndex, int roomTypeIndex,
-            int numOfRoomsIndex, int adultsPerRoomIndex, int childrenPerRoomIndex) {
-
-        return List.of(
-                getLocationNameByIndex(locationIndex),
-                getHotelNameByIndex(hotelIndex),
-                getRoomTypeNameByIndex(roomTypeIndex),
-                getNumOfRoomNameByIndex(numOfRoomsIndex),
-                getAdultsPerRoomNameByIndex(adultsPerRoomIndex),
-                getChildrenPerRoomNameByIndex(childrenPerRoomIndex)
-        );
+            int locationIndex,
+            int hotelIndex,
+            int roomTypeIndex,
+            int numOfRoomsIndex,
+            int adultsPerRoomIndex,
+            int childrenPerRoomIndex) {
+        List<String> testedData = new ArrayList<>(List.of());
+        testedData.add(getLocationNameByIndex(locationIndex));
+        testedData.add(getHotelNameByIndex(hotelIndex));
+        testedData.add(getRoomTypeNameByIndex(roomTypeIndex));
+        testedData.add(getNumOfRoomNameByIndex(numOfRoomsIndex));
+        testedData.add(getAdultsPerRoomNameByIndex(adultsPerRoomIndex));
+        testedData.add(getChildrenPerRoomNameByIndex(childrenPerRoomIndex));
+        return testedData;
     }
     //</editor-fold>
 
@@ -253,7 +257,7 @@ public class SearchHotelPage extends BasePage {
             int adultsPerRoomIndex,
             int childrenPerRoomIndex) {
 
-      return   selectIndexOfLocation(locationIndex)
+        return selectIndexOfLocation(locationIndex)
                 .selectIndexOfHotel(hotelIndex)
                 .selectIndexOfRoomType(roomTypeIndex)
                 .selectIndexOfNumsOfRoom(numOfRoomsIndex)
@@ -274,7 +278,7 @@ public class SearchHotelPage extends BasePage {
             int adultsPerRoomIndex,
             int childrenPerRoomIndex) {
 
-       return selectIndexOfLocation(locationIndex)
+        return selectIndexOfLocation(locationIndex)
                 .selectIndexOfHotel(hotelIndex)
                 .selectIndexOfRoomType(roomTypeIndex)
                 .selectIndexOfNumsOfRoom(numOfRoomsIndex)

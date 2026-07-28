@@ -16,7 +16,7 @@ public class SelectHotelPageTest extends BaseTest {
     private String testedArrivalDate = getTodayDate(Locale.UK);
     private String testedDepartureDate = getDateOffsetFromToday(1, Locale.UK);
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         searchHotelPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);
