@@ -9,7 +9,7 @@ import static utils.helpers.Helpers.*;
 
 public class LogoutPageTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         searchHotelPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);

@@ -17,7 +17,7 @@ public class HomePageTest extends BaseTest {
     private final String notRegisteredUserName = TestData.get("TestData.NotRegisteredAccount.UserName");
     private final String notRegisteredPassword = TestData.get("TestData.NotRegisteredAccount.Password");
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         homePage
                 .openHomePageURL(homePageURL);
