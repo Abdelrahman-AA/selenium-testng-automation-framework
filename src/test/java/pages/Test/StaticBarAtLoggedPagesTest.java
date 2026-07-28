@@ -9,7 +9,7 @@ import static utils.helpers.Helpers.isCurrentUrlEqualTo;
 
 public class StaticBarAtLoggedPagesTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         searchHotelPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);

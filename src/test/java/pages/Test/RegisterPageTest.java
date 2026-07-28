@@ -10,7 +10,7 @@ import static utils.helpers.Helpers.*;
 
 public class RegisterPageTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         registerPage = homePage
                 .openHomePageURL(homePageURL)
