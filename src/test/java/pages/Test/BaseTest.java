@@ -55,14 +55,14 @@ public class BaseTest {
     }
 
     @Parameters({"browser"})
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp(@Optional("chrome") String browser) {
         WebDriver driver = DriverFactory.initDriver(browser);
         driverThreadLocal.set(driver);
         homePage = new HomePage(getDriver());
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         WebDriver driver = getDriver();
         if (driver != null) {
