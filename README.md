@@ -2,7 +2,7 @@
 
 Robust and Scalable Web UI Automation Framework built with Java, Selenium WebDriver, and TestNG. Implements Fluent Page Object Model (Fluent POM) and Component-based architecture. Features comprehensive test suites, parallel execution, and advanced assertions.
 
-An enterprise-grade, data-driven UI automation framework built with **Java 25**, **Selenium WebDriver**, **TestNG**, and **SnakeYAML**, featuring detailed reporting via **Allure Reports**.
+Automation testing framework built with **Java 25**, **Selenium WebDriver**, **TestNG**, and **SnakeYAML**, featuring detailed reporting via **Allure Reports**.
 
 ---
 ![Automation](https://img.shields.io/badge/Test_Automation-323330?style=for-the-badge&logo=robotframework&logoColor=white) 
