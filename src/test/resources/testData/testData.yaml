@@ -97,10 +97,10 @@ StaticURLs:
 
 TestData:
   ValidRegisteredAccount:
-    UserName: "AAAA00010"
+    UserName: "AAAA00014"
     Password: "a1A@900"
     FullName: "A"
-    Email: "sipahab841@besteya.com"
+    Email: "vaxibe3484@kierko.com"
 
   NotRegisteredAccount:
     UserName: "ABCabc090"
