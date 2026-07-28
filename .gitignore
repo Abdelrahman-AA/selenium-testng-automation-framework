@@ -4,6 +4,8 @@
 *.ipr
 out/
 
+.allure/
+
 target/
 *.class
 
