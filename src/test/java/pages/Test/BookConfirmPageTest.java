@@ -14,7 +14,7 @@ public class BookConfirmPageTest extends BaseTest {
 
     private List<String> testedData;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initializePage() {
         searchHotelPage = homePage
                 .openHomePageAndLoginWithValidRegisteredCredentials(registeredUserName, registeredPassword, homePageURL);
