@@ -5,17 +5,9 @@ Robust and Scalable Web UI Automation Framework built with Java, Selenium WebDri
 An enterprise-grade, data-driven UI automation framework built with **Java 25**, **Selenium WebDriver**, **TestNG**, and **SnakeYAML**, featuring detailed reporting via **Allure Reports**.
 
 ---
+![Automation](https://img.shields.io/badge/Test_Automation-323330?style=for-the-badge&logo=robotframework&logoColor=white) 
 
-<p align="left">
-  <img src="https://img.shields.io/badge/UI_Testing-8E44AD?style=for-the-badge&logo=monitor&logoColor=white" alt="UI Testing" />
-  <img src="https://img.shields.io/badge/Test_Automation-323330?style=for-the-badge&logo=robotframework&logoColor=white" alt="Automation" />
-  <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white" alt="Selenium" />
-  <img src="https://img.shields.io/badge/Java_25-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 25" />
-  <img src="https://img.shields.io/badge/TestNG-FF5722?style=for-the-badge&logo=java&logoColor=white" alt="TestNG" />
-  <img src="https://img.shields.io/badge/YAML-CB171E?style=for-the-badge&logo=yaml&logoColor=white" alt="YAML" />
-  <img src="https://img.shields.io/badge/Allure_Report-FF6C37?style=for-the-badge&logo=qameta&logoColor=white" alt="Allure" />
-  <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven" />
-</p>
+**UI Testing** &nbsp; **Test Automation** &nbsp; **Selenium** &nbsp; **Java** &nbsp; **TestNG** &nbsp; **SnakeYAML Data Parsing** &nbsp; **Allure Interactive Reports** &nbsp; **Maven**
 
 ---
 
